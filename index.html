@@ -1,20 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sahariya Islam Shuvo | Traveler & Tour Guide</title>
+    <!-- CSS Dependencies -->
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet OpenStreetMap CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Navigation Header -->
     <header class="glass-nav">
         <div class="nav-container">
             <a href="#home" class="brand-logo">
+                <!-- PLACEHOLDER: Replace src with your profile avatar -->
                 <img src="https://via.placeholder.com/150" alt="Sahariya Islam Shuvo" id="nav-avatar">
                 <span>Sahariya Shuvo</span>
             </a>
@@ -27,25 +32,26 @@
                 <a href="#visited" class="nav-link">Places Visited</a>
                 <a href="#gallery" class="nav-link">Gallery</a>
                 <a href="#posts" class="nav-link">Posts</a>
-                <a href="#facebook-feed" class="nav-link">Facebook</a>
-                <a href="#offers" class="nav-link">Tour Offers</a>
+                <a href="#facebook-feed" class="nav-link">Facebook Feed</a>
                 <a href="#map-section" class="nav-link">Travel Map</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
 
+    <!-- 1. Hero / Home Section -->
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="profile-img-wrapper animate-pop">
+                <!-- PLACEHOLDER: Replace src with main hero picture -->
                 <img src="https://via.placeholder.com/200" alt="Sahariya Islam Shuvo" class="hero-avatar">
             </div>
             <h1 class="hero-title">Sahariya Islam Shuvo</h1>
             <p class="hero-subtitle">Traveler | Tour Guide</p>
             <p class="hero-bio">Exploring hidden trails, cultural footprints, and natural wonderlands across Bangladesh. Join my personal journey and experience authentic travel.</p>
             <div class="hero-cta-group">
-                <a href="#offers" class="btn btn-primary"><i class="fa-solid fa-compass"></i> Explore My Tours</a>
+                <a href="#visited" class="btn btn-primary"><i class="fa-solid fa-compass"></i> Explore My Journeys</a>
                 <a href="#contact" class="btn btn-glass"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
             </div>
         </div>
@@ -54,11 +60,13 @@
         </div>
     </section>
 
+    <!-- 2 & 3. My Profile & Ultra-Modern Side Socials -->
     <section id="profile" class="section-padding">
         <div class="container">
             <div class="glass-card profile-card">
                 <div class="profile-grid">
                     <div class="profile-image-container">
+                        <!-- PLACEHOLDER: Bio Picture -->
                         <img src="https://via.placeholder.com/400x500" alt="Sahariya Islam Shuvo" class="profile-portrait">
                     </div>
                     <div class="profile-details">
@@ -80,21 +88,39 @@
                             </div>
                         </div>
 
-                        <div class="social-block">
-                            <p class="social-title">Connect With Me Directly:</p>
-                            <div class="social-icons">
-                                <a href="https://www.facebook.com/share/1FGThQRvev/" target="_blank" rel="noopener" class="social-glass fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com/sahariyashuvo_/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener" class="social-glass ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="https://wa.me/8801791996607" target="_blank" rel="noopener" class="social-glass wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                                <a href="https://m.me/1FGThQRvev/" target="_blank" rel="noopener" class="social-glass ms" title="Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
+                        <!-- Side-Aligned Modern Social Pills -->
+                        <div class="connect-row">
+                            <div class="connect-label">
+                                <span>Connect Directly</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </div>
+                            <div class="modern-social-pills">
+                                <a href="https://www.facebook.com/share/1FGThQRvev/" target="_blank" class="social-pill fb" title="Facebook">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                    <span>Facebook</span>
+                                </a>
+                                <a href="https://www.instagram.com/sahariyashuvo_/?utm_source=ig_web_button_share_sheet" target="_blank" class="social-pill ig" title="Instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                                <a href="https://wa.me/8801791996607" target="_blank" class="social-pill wa" title="WhatsApp">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>WhatsApp</span>
+                                </a>
+                                <a href="https://m.me/1FGThQRvev/" target="_blank" class="social-pill ms" title="Messenger">
+                                    <i class="fa-brands fa-facebook-messenger"></i>
+                                    <span>Messenger</span>
+                                </a>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 4. Places I Have Visited -->
     <section id="visited" class="section-padding bg-alt">
         <div class="container">
             <div class="section-header">
@@ -102,10 +128,12 @@
                 <p>A personal showcase of destinations explored across Bangladesh</p>
             </div>
             <div class="grid-layout" id="places-container">
-                </div>
+                <!-- Populated via JavaScript -->
+            </div>
         </div>
     </section>
 
+    <!-- 5. Tour / Travel Gallery -->
     <section id="gallery" class="section-padding">
         <div class="container">
             <div class="section-header">
@@ -113,10 +141,12 @@
                 <p>Moments captured from expedition trails and tours</p>
             </div>
             <div class="masonry-grid" id="gallery-container">
-                </div>
+                <!-- Populated via JavaScript -->
+            </div>
         </div>
     </section>
 
+    <!-- 6. Latest Travel Posts -->
     <section id="posts" class="section-padding bg-alt">
         <div class="container">
             <div class="section-header">
@@ -124,24 +154,30 @@
                 <p>Stories, updates, announcements, and travel insights</p>
             </div>
             <div class="grid-layout-3" id="posts-container">
-                </div>
+                <!-- Populated via JavaScript -->
+            </div>
         </div>
     </section>
 
+    <!-- 7. Facebook Content Section -->
     <section id="facebook-feed" class="section-padding">
         <div class="container">
             <div class="section-header">
-                <h2>Facebook Feed & Live Content</h2>
-                <p>Official Facebook page activity and live video streams</p>
+                <h2>Facebook Feed & Live Stream</h2>
+                <p>Official Facebook activity and live video streams</p>
             </div>
-            <div class="glass-card fb-embed-wrapper">
+            <div class="glass-card fb-embed-card">
+                <div class="fb-header-status">
+                    <span class="live-dot"></span>
+                    <span>Live Stream & Timeline Integration</span>
+                </div>
                 <div id="fb-root"></div>
                 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
                 <div class="fb-page" 
                      data-href="https://www.facebook.com/share/1FGThQRvev/" 
                      data-tabs="timeline, events, messages" 
                      data-width="500" 
-                     data-height="600" 
+                     data-height="650" 
                      data-small-header="false" 
                      data-adapt-container-width="true" 
                      data-hide-cover="false" 
@@ -154,18 +190,8 @@
         </div>
     </section>
 
-    <section id="offers" class="section-padding bg-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2>Upcoming Guided Tours</h2>
-                <p>Personalized small-group tours hosted and guided by me</p>
-            </div>
-            <div class="grid-layout-3" id="offers-container">
-                </div>
-        </div>
-    </section>
-
-    <section id="map-section" class="section-padding">
+    <!-- 10. Interactive Map Section -->
+    <section id="map-section" class="section-padding bg-alt">
         <div class="container">
             <div class="section-header">
                 <h2>Interactive Travel Map</h2>
@@ -177,18 +203,19 @@
         </div>
     </section>
 
-    <section id="contact" class="section-padding bg-alt">
+    <!-- 9. Contact Me Section (Clean & Direct) -->
+    <section id="contact" class="section-padding">
         <div class="container">
             <div class="section-header">
                 <h2>Get In Touch</h2>
                 <p>Have questions or want to organize a custom tour? Reach out directly.</p>
             </div>
-            <div class="glass-card contact-card">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        <p class="contact-sub">Direct channels for personal communication</p>
-                        
+            <div class="glass-card contact-card-single">
+                <div class="contact-info-centered">
+                    <h3>Contact Information</h3>
+                    <p class="contact-sub">Direct channels for personal communication</p>
+                    
+                    <div class="contact-items-horizontal">
                         <div class="contact-item">
                             <i class="fa-solid fa-phone"></i>
                             <div>
@@ -212,30 +239,13 @@
                                 <a href="mailto:your_email@example.com">your_email@example.com</a>
                             </div>
                         </div>
-
-                        <div class="contact-item">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <div>
-                                <span>Base Location</span>
-                                <p>Dhaka, Bangladesh</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-actions">
-                        <h3>Quick Social Links</h3>
-                        <div class="cta-grid">
-                            <a href="https://www.facebook.com/share/1FGThQRvev/" target="_blank" class="btn btn-social fb-btn"><i class="fa-brands fa-facebook"></i> Facebook Profile</a>
-                            <a href="https://www.instagram.com/sahariyashuvo_/" target="_blank" class="btn btn-social ig-btn"><i class="fa-brands fa-instagram"></i> Instagram Profile</a>
-                            <a href="https://m.me/1FGThQRvev/" target="_blank" class="btn btn-social ms-btn"><i class="fa-brands fa-facebook-messenger"></i> Messenger Chat</a>
-                            <a href="https://wa.me/8801791996607" target="_blank" class="btn btn-social wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Chat</a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 13. Footer -->
     <footer class="footer">
         <div class="container footer-content">
             <h3>Sahariya Islam Shuvo</h3>
@@ -249,19 +259,21 @@
                 <a href="#home">Home</a>
                 <a href="#profile">About</a>
                 <a href="#visited">Places</a>
-                <a href="#offers">Tours</a>
+                <a href="#posts">Posts</a>
                 <a href="#contact">Contact</a>
             </div>
             <p class="copyright">&copy; 2026 Sahariya Islam Shuvo. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Fullscreen Lightbox Modal -->
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close" id="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightbox-img" alt="Enlarged view">
         <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
 
+    <!-- JS Dependencies -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
