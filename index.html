@@ -1,1 +1,268 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahariya Islam Shuvo | Traveler & Tour Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="glass-nav">
+        <div class="nav-container">
+            <a href="#home" class="brand-logo">
+                <img src="https://via.placeholder.com/150" alt="Sahariya Islam Shuvo" id="nav-avatar">
+                <span>Sahariya Shuvo</span>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#profile" class="nav-link">About Me</a>
+                <a href="#visited" class="nav-link">Places Visited</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#posts" class="nav-link">Posts</a>
+                <a href="#facebook-feed" class="nav-link">Facebook</a>
+                <a href="#offers" class="nav-link">Tour Offers</a>
+                <a href="#map-section" class="nav-link">Travel Map</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="profile-img-wrapper animate-pop">
+                <img src="https://via.placeholder.com/200" alt="Sahariya Islam Shuvo" class="hero-avatar">
+            </div>
+            <h1 class="hero-title">Sahariya Islam Shuvo</h1>
+            <p class="hero-subtitle">Traveler | Tour Guide</p>
+            <p class="hero-bio">Exploring hidden trails, cultural footprints, and natural wonderlands across Bangladesh. Join my personal journey and experience authentic travel.</p>
+            <div class="hero-cta-group">
+                <a href="#offers" class="btn btn-primary"><i class="fa-solid fa-compass"></i> Explore My Tours</a>
+                <a href="#contact" class="btn btn-glass"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section id="profile" class="section-padding">
+        <div class="container">
+            <div class="glass-card profile-card">
+                <div class="profile-grid">
+                    <div class="profile-image-container">
+                        <img src="https://via.placeholder.com/400x500" alt="Sahariya Islam Shuvo" class="profile-portrait">
+                    </div>
+                    <div class="profile-details">
+                        <span class="badge">Personal Profile</span>
+                        <h2>Sahariya Islam Shuvo</h2>
+                        <h4 class="text-accent">Traveler & Independent Tour Guide</h4>
+                        <p class="bio-text">
+                            Passionate about experiential travel, regional cultures, and outdoor expeditions. Over the years, I have explored diverse terrains from the hill tracts to maritime shores. As an independent travel guide, I focus on authentic, memorable journeys tailored for individuals and small groups.
+                        </p>
+                        
+                        <div class="counter-grid">
+                            <div class="counter-box">
+                                <h3 class="counter-number">41+</h3>
+                                <p>Districts Visited</p>
+                            </div>
+                            <div class="counter-box">
+                                <h3 class="counter-number">50+</h3>
+                                <p>Tours Guided</p>
+                            </div>
+                        </div>
+
+                        <div class="social-block">
+                            <p class="social-title">Connect With Me Directly:</p>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/share/1FGThQRvev/" target="_blank" rel="noopener" class="social-glass fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/sahariyashuvo_/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener" class="social-glass ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://wa.me/8801791996607" target="_blank" rel="noopener" class="social-glass wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://m.me/1FGThQRvev/" target="_blank" rel="noopener" class="social-glass ms" title="Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visited" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Places I Have Visited</h2>
+                <p>A personal showcase of destinations explored across Bangladesh</p>
+            </div>
+            <div class="grid-layout" id="places-container">
+                </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Travel Gallery</h2>
+                <p>Moments captured from expedition trails and tours</p>
+            </div>
+            <div class="masonry-grid" id="gallery-container">
+                </div>
+        </div>
+    </section>
+
+    <section id="posts" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Travel Posts</h2>
+                <p>Stories, updates, announcements, and travel insights</p>
+            </div>
+            <div class="grid-layout-3" id="posts-container">
+                </div>
+        </div>
+    </section>
+
+    <section id="facebook-feed" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Facebook Feed & Live Content</h2>
+                <p>Official Facebook page activity and live video streams</p>
+            </div>
+            <div class="glass-card fb-embed-wrapper">
+                <div id="fb-root"></div>
+                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+                <div class="fb-page" 
+                     data-href="https://www.facebook.com/share/1FGThQRvev/" 
+                     data-tabs="timeline, events, messages" 
+                     data-width="500" 
+                     data-height="600" 
+                     data-small-header="false" 
+                     data-adapt-container-width="true" 
+                     data-hide-cover="false" 
+                     data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/share/1FGThQRvev/" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/share/1FGThQRvev/">Sahariya Islam Shuvo</a>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="offers" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Guided Tours</h2>
+                <p>Personalized small-group tours hosted and guided by me</p>
+            </div>
+            <div class="grid-layout-3" id="offers-container">
+                </div>
+        </div>
+    </section>
+
+    <section id="map-section" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Interactive Travel Map</h2>
+                <p>Click pins across Bangladesh to explore visited locations</p>
+            </div>
+            <div class="glass-card map-wrapper">
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Have questions or want to organize a custom tour? Reach out directly.</p>
+            </div>
+            <div class="glass-card contact-card">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p class="contact-sub">Direct channels for personal communication</p>
+                        
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <span>Phone Number</span>
+                                <a href="tel:+8801791996607">+880 1791 996607</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <div>
+                                <span>WhatsApp (Direct Chat)</span>
+                                <a href="https://wa.me/8801791996607" target="_blank" rel="noopener">+880 1791 996607</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <span>Email Address</span>
+                                <a href="mailto:your_email@example.com">your_email@example.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <span>Base Location</span>
+                                <p>Dhaka, Bangladesh</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-actions">
+                        <h3>Quick Social Links</h3>
+                        <div class="cta-grid">
+                            <a href="https://www.facebook.com/share/1FGThQRvev/" target="_blank" class="btn btn-social fb-btn"><i class="fa-brands fa-facebook"></i> Facebook Profile</a>
+                            <a href="https://www.instagram.com/sahariyashuvo_/" target="_blank" class="btn btn-social ig-btn"><i class="fa-brands fa-instagram"></i> Instagram Profile</a>
+                            <a href="https://m.me/1FGThQRvev/" target="_blank" class="btn btn-social ms-btn"><i class="fa-brands fa-facebook-messenger"></i> Messenger Chat</a>
+                            <a href="https://wa.me/8801791996607" target="_blank" class="btn btn-social wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Chat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <h3>Sahariya Islam Shuvo</h3>
+            <p>Traveler | Independent Tour Guide</p>
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/share/1FGThQRvev/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/sahariyashuvo_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/8801791996607" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#profile">About</a>
+                <a href="#visited">Places</a>
+                <a href="#offers">Tours</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2026 Sahariya Islam Shuvo. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Enlarged view">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
