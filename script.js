@@ -2,7 +2,7 @@
    CONFIGURABLE DATA ARRAYS & SETTINGS
    ========================================================================== */
 
-// 1. Visited Places Data (Easily append new destinations here)
+// 1. Visited Places Data (Easily add or modify destinations)
 const visitedPlaces = [
     {
         id: 1,
@@ -10,7 +10,7 @@ const visitedPlaces = [
         district: "Rangamati",
         description: "Known as the Queen of Hills, surrounded by clouds and breathtaking valley vistas.",
         date: "2025",
-        image: "https://via.placeholder.com/600x400", // Replace with actual place image URL
+        image: "https://via.placeholder.com/600x400",
         lat: 23.3817,
         lng: 92.2938
     },
@@ -76,7 +76,7 @@ const visitedPlaces = [
     }
 ];
 
-// 2. Gallery Images & Videos
+// 2. Gallery Images
 const galleryItems = [
     { type: "image", src: "https://via.placeholder.com/800x600", title: "Sajek Sunrise View" },
     { type: "image", src: "https://via.placeholder.com/800x600", title: "Group Camping at Bandarban" },
@@ -104,32 +104,6 @@ const travelPosts = [
     }
 ];
 
-// 4. Tour Offers Data
-const tourOffers = [
-    {
-        id: 1,
-        destination: "Sajek Valley Expedition",
-        date: "15 - 17 September 2026",
-        duration: "3 Days / 2 Nights",
-        price: "6,500 BDT",
-        transport: "AC Bus & Chander Gari",
-        hotel: "Premium Hill Resort",
-        seats: 6,
-        image: "https://via.placeholder.com/600x400"
-    },
-    {
-        id: 2,
-        destination: "Bandarban Peak Exploration",
-        date: "05 - 08 October 2026",
-        duration: "4 Days / 3 Nights",
-        price: "8,000 BDT",
-        transport: "Non-AC / AC Bus & Local Jeep",
-        hotel: "Eco Cottage Stay",
-        seats: 4,
-        image: "https://via.placeholder.com/600x400"
-    }
-];
-
 /* ==========================================================================
    INITIALIZATION & DOM RENDERING
    ========================================================================== */
@@ -138,7 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderVisitedPlaces();
     renderGallery();
     renderPosts();
-    renderOffers();
     initMap();
     initNavigation();
     initLightbox();
@@ -212,50 +185,17 @@ function renderPosts() {
     `).join('');
 }
 
-// Render Tour Offers
-function renderOffers() {
-    const container = document.getElementById("offers-container");
-    container.innerHTML = tourOffers.map(offer => `
-        <div class="card">
-            <div class="card-img-wrapper">
-                <img src="${offer.image}" alt="${offer.destination}">
-                <span class="card-tag">${offer.price}</span>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title">${offer.destination}</h3>
-                <div class="card-meta">
-                    <span><i class="fa-regular fa-clock"></i> ${offer.duration}</span>
-                    <span><i class="fa-solid fa-chair"></i> ${offer.seats} Seats Left</span>
-                </div>
-                <p class="card-desc">
-                    <strong>Date:</strong> ${offer.date}<br>
-                    <strong>Transport:</strong> ${offer.transport}<br>
-                    <strong>Stay:</strong> ${offer.hotel}
-                </p>
-                <div style="display: flex; gap: 10px;">
-                    <a href="https://wa.me/8801791996607?text=Hi%20Sahariya,%20I%20am%20interested%20in%20booking%20the%20${encodeURIComponent(offer.destination)}" target="_blank" class="btn btn-primary btn-sm" style="flex: 1; justify-content: center;">
-                        <i class="fa-brands fa-whatsapp"></i> Book / Contact
-                    </a>
-                </div>
-            </div>
-        </div>
-    `).join('');
-}
-
 /* ==========================================================================
    INTERACTIVE MAP (Leaflet.js)
    ========================================================================== */
 
 function initMap() {
-    // Centered on Bangladesh
     const map = L.map('map').setView([23.6850, 90.3563], 7);
 
-    // OpenStreetMap tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Add markers for visited locations
     visitedPlaces.forEach(place => {
         const marker = L.marker([place.lat, place.lng]).addTo(map);
         const popupContent = `
@@ -297,4 +237,4 @@ function openLightbox(src, captionText) {
     lightbox.style.display = "flex";
     lightboxImg.src = src;
     caption.innerText = captionText || "";
-      }
+}
