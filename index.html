@@ -6,24 +6,25 @@
     <title>SHUVO — MY TRAVEL UNIVERSE</title>
     <meta name="description" content="Futuristic Personal Travel Portfolio of Sahariya Islam Shuvo">
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Holographic Preloader (Only Sahariya Islam Shuvo) -->
     <div id="preloader">
-        <div class="loader-content">
-            <div class="holo-ring"></div>
-            <h2 class="glow-text">INITIALIZING QUANTUM PORTAL...</h2>
-            <div class="progress-bar"><div class="progress-fill"></div></div>
-        </div>
+        <h2 class="loader-text">Sahariya Islam Shuvo</h2>
     </div>
 
+    <!-- Interactive Canvas Galaxy Background -->
     <canvas id="galaxy-canvas"></canvas>
     <div class="nebula-overlay"></div>
 
+    <!-- Navigation Bar -->
     <nav class="holo-nav">
         <div class="nav-brand">
             <span class="brand-glow">SHUVO</span> <span class="brand-sub">// PORTAL</span>
@@ -43,8 +44,10 @@
         </ul>
     </nav>
 
+    <!-- Main Container -->
     <main class="main-wrapper">
 
+        <!-- SECTION 1: HOME -->
         <section id="home" class="viewport-section active-section">
             <div class="home-container">
                 <div class="profile-avatar-wrapper">
@@ -63,6 +66,7 @@
             </div>
         </section>
 
+        <!-- SECTION 2: PROFILE -->
         <section id="profile" class="viewport-section">
             <div class="section-header">
                 <h2><i class="fas fa-user-astronaut"></i> EXPEDITIONER PROFILE</h2>
@@ -104,6 +108,7 @@
                 </div>
             </div>
 
+            <!-- Stats Counter Block -->
             <div class="stats-container" id="stats-board">
                 <div class="glass-panel stat-card">
                     <i class="fas fa-globe-asia"></i>
@@ -128,12 +133,14 @@
             </div>
         </section>
 
+        <!-- SECTION 3: MY TRAVEL JOURNEY -->
         <section id="journey" class="viewport-section">
             <div class="section-header">
                 <h2><i class="fas fa-compass"></i> EXPLORATION DASHBOARD</h2>
                 <div class="header-line"></div>
             </div>
 
+            <!-- Global Controls: Search & Filters -->
             <div class="controls-wrapper glass-panel">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
@@ -149,10 +156,11 @@
                 </div>
             </div>
 
-            <div class="journey-grid" id="journey-grid">
-                </div>
+            <!-- Journey Destination Grid -->
+            <div class="journey-grid" id="journey-grid"></div>
         </section>
 
+        <!-- SECTION 4: COX'S BAZAR SPECIAL PAGE -->
         <section id="coxsbazar" class="viewport-section">
             <div class="section-header">
                 <h2><i class="fas fa-umbrella-beach"></i> COX'S BAZAR EXPEDITION MATRIX</h2>
@@ -171,10 +179,10 @@
                 </div>
             </div>
 
-            <div class="cb-grid" id="cb-grid">
-                </div>
+            <div class="cb-grid" id="cb-grid"></div>
         </section>
 
+        <!-- SECTION 5: BANGLADESH 41 DISTRICTS -->
         <section id="districts" class="viewport-section">
             <div class="section-header">
                 <h2><i class="fas fa-map-marked-alt"></i> BANGLADESH 41 DISTRICTS LOG</h2>
@@ -183,41 +191,41 @@
             </div>
 
             <div class="districts-container">
-                <div class="districts-grid" id="districts-grid">
-                    </div>
+                <div class="districts-grid" id="districts-grid"></div>
             </div>
         </section>
 
+        <!-- SECTION 6: PHOTO GALLERY -->
         <section id="gallery" class="viewport-section">
             <div class="section-header">
                 <h2><i class="fas fa-images"></i> VISUAL ARCHIVE</h2>
                 <div class="header-line"></div>
             </div>
 
-            <div class="gallery-grid" id="gallery-grid">
-                </div>
+            <div class="gallery-grid" id="gallery-grid"></div>
         </section>
 
+        <!-- SECTION 7: TIMELINE -->
         <section id="timeline" class="viewport-section">
             <div class="section-header">
                 <h2><i class="fas fa-stream"></i> CHRONOLOGICAL CHRONICLE</h2>
                 <div class="header-line"></div>
             </div>
-            <div class="timeline-wrapper" id="timeline-wrapper">
-                </div>
+            <div class="timeline-wrapper" id="timeline-wrapper"></div>
         </section>
 
+        <!-- SECTION 8: SOCIAL MEDIA -->
         <section id="social" class="viewport-section">
             <div class="section-header">
                 <h2><i class="fas fa-satellite"></i> COMMUNICATION FREQUENCIES</h2>
                 <div class="header-line"></div>
             </div>
-            <div class="social-grid" id="social-grid">
-                </div>
+            <div class="social-grid" id="social-grid"></div>
         </section>
 
     </main>
 
+    <!-- FLOATING ACTIONS CONTAINER -->
     <div class="floating-controls">
         <button id="floating-home" class="floating-btn" title="Return to Core Base (Home)">
             <i class="fas fa-home"></i>
@@ -227,14 +235,15 @@
         </button>
     </div>
 
+    <!-- GLOBAL DETAILED MODAL SYSTEM -->
     <div id="detail-modal" class="modal-overlay">
         <div class="modal-container glass-panel">
             <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
-            <div class="modal-content-wrapper" id="modal-body">
-                </div>
+            <div class="modal-content-wrapper" id="modal-body"></div>
         </div>
     </div>
 
+    <!-- LIGHTBOX SYSTEM -->
     <div id="lightbox" class="lightbox-overlay">
         <button class="lightbox-close" id="lightbox-close"><i class="fas fa-times"></i></button>
         <button class="lightbox-nav prev" id="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
@@ -245,6 +254,7 @@
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer class="holo-footer">
         <div class="footer-content">
             <p class="footer-text">&copy; 2026 Sahariya Islam Shuvo — My Travel Universe</p>
@@ -257,6 +267,7 @@
         </div>
     </footer>
 
+    <!-- Core App Logic -->
     <script src="script.js"></script>
 </body>
 </html>
