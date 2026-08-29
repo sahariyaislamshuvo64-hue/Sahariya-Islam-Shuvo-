@@ -155,7 +155,7 @@ const photoGalleryData = [
     { title: "Starlight Camping", location: "Sajek Valley", date: "2025-05-18", url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" },
     { title: "Reflective Waters", location: "Ratargul Forest", date: "2024-11-05", url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" },
     { title: "Colonial Grandeur", location: "Kolkata, India", date: "2023-10-10", url: "https://images.unsplash.com/photo-1558431382-27e303142255?auto=format&fit=crop&w=800&q=80" },
-    { title: "Missing Log Entry", location: "Unexplored Zone", date: "2026-01-01", url: "" } // Example for placeholder fallbacks
+    { title: "Missing Log Entry", location: "Unexplored Zone", date: "2026-01-01", url: "" }
 ];
 
 /* State Tracking */
@@ -181,13 +181,14 @@ document.addEventListener("DOMContentLoaded", () => {
     initStatsObserver();
 });
 
-/* Preloader Control */
+/* Simple Preloader Control */
 function initPreloader() {
     const preloader = document.getElementById("preloader");
     setTimeout(() => {
-        preloader.style.opacity = "0";
-        setTimeout(() => preloader.style.visibility = "hidden", 600);
-    }, 1200);
+        if (preloader) {
+            preloader.classList.add("hide");
+        }
+    }, 1000); // 1 second delay to display the name nicely before hiding
 }
 
 /* ==========================================================================
@@ -208,7 +209,6 @@ function loadProfileData() {
     document.getElementById("profile-passion").innerText = p.passion;
     document.getElementById("profile-fav-dest").innerText = p.favoriteDestination;
 
-    // Dynamically calculate statistics
     const totalVisits = destinationsData.reduce((acc, curr) => acc + curr.visits, 0);
     const visitedDistrictsCount = districtsData.filter(d => d.visited).length;
 
@@ -218,7 +218,6 @@ function loadProfileData() {
     document.getElementById("stat-memories").setAttribute("data-target", photoGalleryData.length);
 }
 
-/* Helper: Render Safe Image or Futuristic Placeholder */
 function getSafeImageHTML(url, altText) {
     if (url && url.trim() !== "") {
         return `<img src="${url}" alt="${altText}" onerror="this.onerror=null; this.parentNode.innerHTML=getPlaceholderHTML();">`;
@@ -235,7 +234,6 @@ function getPlaceholderHTML() {
     `;
 }
 
-/* Render Journey Cards */
 function renderDestinations(items) {
     const grid = document.getElementById("journey-grid");
     grid.innerHTML = "";
@@ -269,7 +267,6 @@ function renderDestinations(items) {
     });
 }
 
-/* Render Cox's Bazar Dedicated Page */
 function renderCoxsBazarPage() {
     const cbGrid = document.getElementById("cb-grid");
     cbGrid.innerHTML = "";
@@ -296,7 +293,6 @@ function renderCoxsBazarPage() {
     });
 }
 
-/* Render Bangladesh 41 Districts */
 function renderDistricts() {
     const grid = document.getElementById("districts-grid");
     grid.innerHTML = "";
@@ -316,7 +312,6 @@ function renderDistricts() {
     });
 }
 
-/* Render Photo Gallery */
 function renderGallery() {
     const grid = document.getElementById("gallery-grid");
     grid.innerHTML = "";
@@ -338,7 +333,6 @@ function renderGallery() {
     });
 }
 
-/* Render Timeline */
 function renderTimeline() {
     const wrapper = document.getElementById("timeline-wrapper");
     wrapper.innerHTML = "";
@@ -358,7 +352,6 @@ function renderTimeline() {
     });
 }
 
-/* Render Social Cards */
 function renderSocialCards() {
     const grid = document.getElementById("social-grid");
     const links = CONFIG.socialLinks;
@@ -410,7 +403,6 @@ function initNavigation() {
         const activeLink = document.querySelector(`.nav-item[href="#${targetId}"]`);
         if (activeLink) activeLink.classList.add("active");
 
-        // Dynamic Back Floating Button logic
         const backBtn = document.getElementById("floating-back");
         if (targetId !== "home") {
             backBtn.classList.remove("hidden");
@@ -435,7 +427,6 @@ function initNavigation() {
     document.getElementById("floating-back").addEventListener("click", () => navigateTo(previousSectionId));
 }
 
-/* Global Search Logic */
 function initGlobalSearch() {
     const input = document.getElementById("global-search");
     input.addEventListener("input", (e) => {
@@ -449,7 +440,6 @@ function initGlobalSearch() {
     });
 }
 
-/* Filter Bar Logic */
 function initFilters() {
     const filterBtns = document.querySelectorAll(".filter-btn");
     filterBtns.forEach(btn => {
@@ -473,7 +463,6 @@ function initFilters() {
     });
 }
 
-/* Animated Counters on View Scroll */
 function initStatsObserver() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -578,7 +567,6 @@ function openDistrictModal(index) {
     modal.classList.add("active");
 }
 
-/* Map Links */
 function openGoogleMap(lat, lng, name) {
     if (lat && lng) {
         window.open(`https://www.google.com/maps?q=${lat},${lng}`, '_blank');
