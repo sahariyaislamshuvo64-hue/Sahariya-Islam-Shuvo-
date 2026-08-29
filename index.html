@@ -1,201 +1,262 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sahariya Islam Shuvo | Traveler & Tour Guide</title>
+    <title>SHUVO — MY TRAVEL UNIVERSE</title>
+    <meta name="description" content="Futuristic Personal Travel Portfolio of Sahariya Islam Shuvo">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="floating-social-side">
-        <a href="https://www.facebook.com/share/1FGThQRvev/" target="_blank" class="float-btn fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/sahariyashuvo_/?utm_source=ig_web_button_share_sheet" target="_blank" class="float-btn ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://wa.me/8801791996607" target="_blank" class="float-btn wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://m.me/1FGThQRvev/" target="_blank" class="float-btn ms" title="Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="holo-ring"></div>
+            <h2 class="glow-text">INITIALIZING QUANTUM PORTAL...</h2>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+        </div>
     </div>
 
-    <header class="glass-nav">
-        <div class="nav-container">
-            <a href="#home" class="brand-logo">
-                <img src="https://via.placeholder.com/150" alt="Sahariya Islam Shuvo" id="nav-avatar">
-                <span>Sahariya Shuvo</span>
-            </a>
-            <button class="mobile-toggle" aria-label="Toggle Menu" id="mobile-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#profile" class="nav-link">About Me</a>
-                <a href="#visited" class="nav-link">Places Visited</a>
-                <a href="#gallery" class="nav-link">Gallery</a>
-                <a href="#facebook-feed" class="nav-link">FB Live & Posts</a>
-                <a href="#map-section" class="nav-link">Travel Map</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-        </div>
-    </header>
+    <canvas id="galaxy-canvas"></canvas>
+    <div class="nebula-overlay"></div>
 
-    <section id="home" class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="profile-img-wrapper animate-pop">
-                <img src="https://via.placeholder.com/200" alt="Sahariya Islam Shuvo" class="hero-avatar">
-            </div>
-            <h1 class="hero-title">Sahariya Islam Shuvo</h1>
-            <p class="hero-subtitle">Traveler | Tour Guide</p>
-            <p class="hero-bio">Exploring hidden trails, cultural footprints, and natural wonderlands across Bangladesh.</p>
-            <div class="hero-cta-group">
-                <a href="#visited" class="btn btn-primary"><i class="fa-solid fa-compass"></i> Explore Journeys</a>
-                <a href="#contact" class="btn btn-glass"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
-            </div>
+    <nav class="holo-nav">
+        <div class="nav-brand">
+            <span class="brand-glow">SHUVO</span> <span class="brand-sub">// PORTAL</span>
         </div>
-    </section>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home" class="nav-item active"><i class="fas fa-home"></i> HOME</a></li>
+            <li><a href="#profile" class="nav-item"><i class="fas fa-user-astronaut"></i> PROFILE</a></li>
+            <li><a href="#journey" class="nav-item"><i class="fas fa-compass"></i> MY JOURNEY</a></li>
+            <li><a href="#coxsbazar" class="nav-item"><i class="fas fa-umbrella-beach"></i> COX'S BAZAR</a></li>
+            <li><a href="#districts" class="nav-item"><i class="fas fa-map-marked-alt"></i> BANGLADESH 41</a></li>
+            <li><a href="#gallery" class="nav-item"><i class="fas fa-images"></i> GALLERY</a></li>
+            <li><a href="#timeline" class="nav-item"><i class="fas fa-stream"></i> TIMELINE</a></li>
+            <li><a href="#social" class="nav-item"><i class="fas fa-satellite"></i> SOCIAL</a></li>
+        </ul>
+    </nav>
 
-    <section class="promo-banner-section">
-        <div class="container">
-            <div class="glass-card promo-banner">
-                <div class="promo-badge">PROMOTIONAL ANNOUNCEMENT</div>
-                <h3>Explore Sajek & Bandarban Trails With Me!</h3>
-                <p>Nijer pakhaye ghurun, prokritir sathe shomoy katabun. Dynamic custom tour booking ebong personal guidance-er jonno call ba WhatsApp-e jugajog korun.</p>
-                <a href="https://wa.me/8801791996607" target="_blank" class="btn btn-accent"><i class="fa-brands fa-whatsapp"></i> Chat Now</a>
-            </div>
-        </div>
-    </section>
+    <main class="main-wrapper">
 
-    <section id="profile" class="section-padding">
-        <div class="container">
-            <div class="glass-card profile-card">
-                <div class="profile-grid">
-                    <div class="profile-image-container">
-                        <img src="https://via.placeholder.com/400x500" alt="Sahariya Islam Shuvo" class="profile-portrait">
-                    </div>
-                    <div class="profile-details">
-                        <span class="badge">Personal Profile</span>
-                        <h2>Sahariya Islam Shuvo</h2>
-                        <h4 class="text-accent">Traveler & Independent Tour Guide</h4>
-                        <p class="bio-text">
-                            Passionate about experiential travel, regional cultures, and outdoor expeditions across Bangladesh.
-                        </p>
-                        <div class="counter-grid">
-                            <div class="counter-box">
-                                <h3>41+</h3>
-                                <p>Districts Visited</p>
-                            </div>
-                            <div class="counter-box">
-                                <h3>50+</h3>
-                                <p>Tours Guided</p>
-                            </div>
-                        </div>
-                    </div>
+        <section id="home" class="viewport-section active-section">
+            <div class="home-container">
+                <div class="profile-avatar-wrapper">
+                    <div class="avatar-ring"></div>
+                    <img src="" id="home-avatar" alt="Sahariya Islam Shuvo" class="avatar-img" onerror="this.src='https://via.placeholder.com/180/0d1117/00f3ff?text=SHUVO+AVATAR'">
+                </div>
+                <h1 class="hero-title" id="home-name">Sahariya Islam Shuvo</h1>
+                <p class="hero-subtitle" id="home-subtitle">Traveler • Explorer • Dreamer</p>
+                <p class="hero-intro" id="home-intro">
+                    Navigating through space and time. Archiving exploration logs across coordinate networks and cultural nexus points. Welcome to my personal travel universe.
+                </p>
+                <div class="hero-actions">
+                    <a href="#journey" class="holo-btn primary"><i class="fas fa-rocket"></i> EXPLORE MY JOURNEY</a>
+                    <a href="#profile" class="holo-btn secondary"><i class="fas fa-id-card"></i> MY PROFILE</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="visited" class="section-padding bg-alt">
-        <div class="container">
+        <section id="profile" class="viewport-section">
             <div class="section-header">
-                <h2>Places I Have Visited</h2>
-                <p>Amar ghura vibhinno sthan ebong obhiggota</p>
+                <h2><i class="fas fa-user-astronaut"></i> EXPEDITIONER PROFILE</h2>
+                <div class="header-line"></div>
             </div>
-            <div class="grid-layout" id="places-container"></div>
-        </div>
-    </section>
-
-    <section id="gallery" class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2>Travel Gallery</h2>
-                <p>Expedition o tour moments</p>
-            </div>
-            <div class="masonry-grid" id="gallery-container"></div>
-        </div>
-    </section>
-
-    <section id="facebook-feed" class="section-padding bg-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2>Facebook Live & Social Feed</h2>
-                <p>Amar Facebook Profile/Page update ebong Live Stream sorasori website-e dekha jabe</p>
-            </div>
-            <div class="glass-card fb-embed-card">
-                <div class="fb-header-status">
-                    <span class="live-dot"></span>
-                    <span>Live Streaming & Profile Activity</span>
-                </div>
-                <div id="fb-root"></div>
-                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
-                <div class="fb-page" 
-                     data-href="https://www.facebook.com/share/1FGThQRvev/" 
-                     data-tabs="timeline, events, messages" 
-                     data-width="500" 
-                     data-height="650" 
-                     data-small-header="false" 
-                     data-adapt-container-width="true" 
-                     data-hide-cover="false" 
-                     data-show-facepile="true">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="map-section" class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2>Interactive Travel Map</h2>
-                <p>Bangladesh-er jeje sthane ami giyechi setar pin points</p>
-            </div>
-            <div class="glass-card map-wrapper">
-                <div id="map"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-padding bg-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <p>Direct communication channels</p>
-            </div>
-            <div class="glass-card contact-card-single">
-                <div class="contact-items-horizontal">
-                    <div class="contact-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <div>
-                            <span>Phone Number</span>
-                            <a href="tel:+8801791996607">+880 1791 996607</a>
-                        </div>
+            <div class="profile-grid">
+                <div class="profile-card main-info-card glass-panel">
+                    <div class="profile-img-container">
+                        <img src="" id="profile-avatar" alt="Profile Picture" class="profile-img" onerror="this.src='https://via.placeholder.com/250/0d1117/00f3ff?text=SHUVO'">
                     </div>
-                    <div class="contact-item">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        <div>
-                            <span>WhatsApp Direct</span>
-                            <a href="https://wa.me/8801791996607" target="_blank">+880 1791 996607</a>
-                        </div>
+                    <h3 id="profile-fullname">Sahariya Islam Shuvo</h3>
+                    <p class="badge-nickname" id="profile-nickname">"SHUVO"</p>
+                    <div class="bio-box">
+                        <p id="profile-bio">Passionate voyager mapping terrain, culture, and coastal nodes.</p>
+                    </div>
+                </div>
+                
+                <div class="profile-details-grid">
+                    <div class="glass-panel detail-card">
+                        <i class="fas fa-graduation-cap card-icon"></i>
+                        <h4>Education</h4>
+                        <p id="profile-education">Computer Science & Engineering</p>
+                    </div>
+                    <div class="glass-panel detail-card">
+                        <i class="fas fa-laptop-code card-icon"></i>
+                        <h4>Profession</h4>
+                        <p id="profile-profession">Software Engineer & Tech Explorer</p>
+                    </div>
+                    <div class="glass-panel detail-card">
+                        <i class="fas fa-heart card-icon"></i>
+                        <h4>Travel Passion</h4>
+                        <p id="profile-passion">Coastal Trails, Mountain Peaks & Wilderness</p>
+                    </div>
+                    <div class="glass-panel detail-card">
+                        <i class="fas fa-star card-icon"></i>
+                        <h4>Favorite Destination</h4>
+                        <p id="profile-fav-dest">Bandarban & Cox's Bazar</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <footer class="footer">
-        <div class="container footer-content">
-            <h3>Sahariya Islam Shuvo</h3>
-            <p>&copy; 2026 Sahariya Islam Shuvo. All Rights Reserved.</p>
+            <div class="stats-container" id="stats-board">
+                <div class="glass-panel stat-card">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3 class="counter" data-target="0" id="stat-places">0</h3>
+                    <p>Places Explored</p>
+                </div>
+                <div class="glass-panel stat-card">
+                    <i class="fas fa-map-marked"></i>
+                    <h3 class="counter" data-target="0" id="stat-districts">0</h3>
+                    <p>Districts Visited</p>
+                </div>
+                <div class="glass-panel stat-card">
+                    <i class="fas fa-plane-departure"></i>
+                    <h3 class="counter" data-target="0" id="stat-trips">0</h3>
+                    <p>Total Trips</p>
+                </div>
+                <div class="glass-panel stat-card">
+                    <i class="fas fa-camera-retro"></i>
+                    <h3 class="counter" data-target="0" id="stat-memories">0</h3>
+                    <p>Memories Saved</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="viewport-section">
+            <div class="section-header">
+                <h2><i class="fas fa-compass"></i> EXPLORATION DASHBOARD</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="controls-wrapper glass-panel">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="global-search" placeholder="Search destinations, spots, districts...">
+                </div>
+                <div class="filter-bar" id="filter-bar">
+                    <button class="filter-btn active" data-filter="all">ALL</button>
+                    <button class="filter-btn" data-filter="bangladesh">BANGLADESH</button>
+                    <button class="filter-btn" data-filter="international">INTERNATIONAL</button>
+                    <button class="filter-btn" data-filter="beach">BEACHES</button>
+                    <button class="filter-btn" data-filter="mountain">MOUNTAINS</button>
+                    <button class="filter-btn" data-filter="favorite">FAVORITES</button>
+                </div>
+            </div>
+
+            <div class="journey-grid" id="journey-grid">
+                </div>
+        </section>
+
+        <section id="coxsbazar" class="viewport-section">
+            <div class="section-header">
+                <h2><i class="fas fa-umbrella-beach"></i> COX'S BAZAR EXPEDITION MATRIX</h2>
+                <p class="section-subtext">Detailed logs from the longest natural sea beach in the world.</p>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="cb-stats-banner glass-panel">
+                <div class="cb-stat-item">
+                    <span class="cb-badge">LOG STATUS</span>
+                    <h3>VISITED 12+ TIMES</h3>
+                </div>
+                <div class="cb-stat-item">
+                    <span class="cb-badge">PRIMARY BASE</span>
+                    <h3>SUGANDHA & MARINE DRIVE</h3>
+                </div>
+            </div>
+
+            <div class="cb-grid" id="cb-grid">
+                </div>
+        </section>
+
+        <section id="districts" class="viewport-section">
+            <div class="section-header">
+                <h2><i class="fas fa-map-marked-alt"></i> BANGLADESH 41 DISTRICTS LOG</h2>
+                <p class="section-subtext">Interactive territorial mapping of national coverage.</p>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="districts-container">
+                <div class="districts-grid" id="districts-grid">
+                    </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="viewport-section">
+            <div class="section-header">
+                <h2><i class="fas fa-images"></i> VISUAL ARCHIVE</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="gallery-grid" id="gallery-grid">
+                </div>
+        </section>
+
+        <section id="timeline" class="viewport-section">
+            <div class="section-header">
+                <h2><i class="fas fa-stream"></i> CHRONOLOGICAL CHRONICLE</h2>
+                <div class="header-line"></div>
+            </div>
+            <div class="timeline-wrapper" id="timeline-wrapper">
+                </div>
+        </section>
+
+        <section id="social" class="viewport-section">
+            <div class="section-header">
+                <h2><i class="fas fa-satellite"></i> COMMUNICATION FREQUENCIES</h2>
+                <div class="header-line"></div>
+            </div>
+            <div class="social-grid" id="social-grid">
+                </div>
+        </section>
+
+    </main>
+
+    <div class="floating-controls">
+        <button id="floating-home" class="floating-btn" title="Return to Core Base (Home)">
+            <i class="fas fa-home"></i>
+        </button>
+        <button id="floating-back" class="floating-btn hidden" title="Back to Previous View">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+    </div>
+
+    <div id="detail-modal" class="modal-overlay">
+        <div class="modal-container glass-panel">
+            <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+            <div class="modal-content-wrapper" id="modal-body">
+                </div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox-overlay">
+        <button class="lightbox-close" id="lightbox-close"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav prev" id="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav next" id="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Enlarged Memory">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <footer class="holo-footer">
+        <div class="footer-content">
+            <p class="footer-text">&copy; 2026 Sahariya Islam Shuvo — My Travel Universe</p>
+            <div class="footer-links">
+                <a href="#home">Home</a> • 
+                <a href="#journey">Destinations</a> • 
+                <a href="#gallery">Gallery</a> • 
+                <a href="#profile">Profile</a>
+            </div>
         </div>
     </footer>
 
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close" id="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" alt="Enlarged view">
-        <div id="lightbox-caption" class="lightbox-caption"></div>
-    </div>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
