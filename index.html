@@ -3,271 +3,677 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHUVO — MY TRAVEL UNIVERSE</title>
-    <meta name="description" content="Futuristic Personal Travel Portfolio of Sahariya Islam Shuvo">
-    <link rel="stylesheet" href="style.css">
+    <title>Sahariya Islam Shuvo - Web Developer & Field Investigator</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --bg-card: rgba(18, 24, 38, 0.75);
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.4);
+            --accent: #8b5cf6;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(15, 23, 42, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 45%);
+            background-attachment: fixed;
+        }
+
+        /* Fixed Floating Social Bar (Facebook App Style) */
+        .floating-socials {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 12px 10px;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .social-btn.facebook {
+            background: linear-gradient(135deg, #1877f2, #0052b4);
+        }
+
+        .social-btn.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .social-btn.whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+        }
+
+        .social-btn:hover {
+            transform: scale(1.15) translateX(-5px);
+            box-shadow: 0 0 20px rgba(255,255,255,0.4);
+        }
+
+        .social-btn .tooltip {
+            position: absolute;
+            right: 55px;
+            background: #fff;
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .social-btn:hover .tooltip {
+            opacity: 1;
+        }
+
+        /* Header Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive Mobile Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 120px 8% 60px;
+            gap: 50px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 30px;
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 17px;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 15px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            box-shadow: 0 10px 25px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px var(--primary-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: #fff;
+        }
+
+        /* Profile Card */
+        .profile-card-container {
+            position: relative;
+            width: 380px;
+            height: 480px;
+            border-radius: 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            padding: 4px;
+            margin-bottom: 20px;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #1e293b;
+        }
+
+        .profile-card-container h3 {
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .profile-card-container p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item h4 {
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .stat-item p {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+
+        /* Sections Structure */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Cards Layout */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Travel Bangladesh Gallery */
+        .travel-banner {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .travel-counter {
+            font-size: 64px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .places-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .tag {
+            padding: 8px 18px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            font-size: 14px;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tag i {
+            color: #ef4444;
+        }
+
+        .tag.unique {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.5);
+            color: #d8b4fe;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(5, 8, 15, 0.95);
+            border-top: 1px solid var(--border);
+            padding: 60px 8% 30px;
+            text-align: center;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .footer-social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .footer-social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Layout Adjustments */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 140px;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+            .profile-card-container {
+                width: 100%;
+                max-width: 360px;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--bg-dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: 0.3s;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Holographic Preloader (Only Sahariya Islam Shuvo) -->
-    <div id="preloader">
-        <h2 class="loader-text">Sahariya Islam Shuvo</h2>
+    <!-- Floating Social App Icons -->
+    <div class="floating-socials">
+        <a href="https://www.facebook.com/share/19KEzFtijK/" target="_blank" class="social-btn facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+            <span class="tooltip">Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/sahariyashuvo_/?utm_source=ig_web_button_share_sheet" target="_blank" class="social-btn instagram">
+            <i class="fa-brands fa-instagram"></i>
+            <span class="tooltip">Instagram</span>
+        </a>
+        <a href="https://wa.me/8801791996607" target="_blank" class="social-btn whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="tooltip">WhatsApp</span>
+        </a>
     </div>
 
-    <!-- Interactive Canvas Galaxy Background -->
-    <canvas id="galaxy-canvas"></canvas>
-    <div class="nebula-overlay"></div>
-
-    <!-- Navigation Bar -->
-    <nav class="holo-nav">
-        <div class="nav-brand">
-            <span class="brand-glow">SHUVO</span> <span class="brand-sub">// PORTAL</span>
+    <!-- Navigation Header -->
+    <header>
+        <a href="#home" class="logo">SHUVO<span>HUB</span></a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#home" class="nav-item active"><i class="fas fa-home"></i> HOME</a></li>
-            <li><a href="#profile" class="nav-item"><i class="fas fa-user-astronaut"></i> PROFILE</a></li>
-            <li><a href="#journey" class="nav-item"><i class="fas fa-compass"></i> MY JOURNEY</a></li>
-            <li><a href="#coxsbazar" class="nav-item"><i class="fas fa-umbrella-beach"></i> COX'S BAZAR</a></li>
-            <li><a href="#districts" class="nav-item"><i class="fas fa-map-marked-alt"></i> BANGLADESH 41</a></li>
-            <li><a href="#gallery" class="nav-item"><i class="fas fa-images"></i> GALLERY</a></li>
-            <li><a href="#timeline" class="nav-item"><i class="fas fa-stream"></i> TIMELINE</a></li>
-            <li><a href="#social" class="nav-item"><i class="fas fa-satellite"></i> SOCIAL</a></li>
+        <ul class="nav-links" id="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About & Qualifications</a></li>
+            <li><a href="#projects">Projects & Research</a></li>
+            <li><a href="#travel">Travel Bangladesh</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-    </nav>
+    </header>
 
-    <!-- Main Container -->
-    <main class="main-wrapper">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="badge"><i class="fa-solid fa-code"></i> Full-Stack Developer & Researcher</div>
+            <h1 class="hero-title">Crafting Digital Solutions & <span>Exploring Horizons</span></h1>
+            <p class="hero-desc">
+                Hi, I'm <strong>Sahariya Islam Shuvo</strong>. A passionate Web Developer, Graphic Designer, and Digital Field Investigator based in Bangladesh.
+            </p>
+            <div class="btn-group">
+                <!-- Working Anchor Button Link -->
+                <a href="#about" class="btn btn-primary">
+                    Explore My Journey <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    Get in Touch <i class="fa-regular fa-paper-plane"></i>
+                </a>
+            </div>
+        </div>
 
-        <!-- SECTION 1: HOME -->
-        <section id="home" class="viewport-section active-section">
-            <div class="home-container">
-                <div class="profile-avatar-wrapper">
-                    <div class="avatar-ring"></div>
-                    <img src="" id="home-avatar" alt="Sahariya Islam Shuvo" class="avatar-img" onerror="this.src='https://via.placeholder.com/180/0d1117/00f3ff?text=SHUVO+AVATAR'">
+        <!-- Interactive Profile Card -->
+        <div class="profile-card-container" id="profile-card">
+            <div class="profile-avatar">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Shuvo" alt="Sahariya Islam Shuvo">
+            </div>
+            <h3>Sahariya Islam Shuvo</h3>
+            <p>Freelancer & Web Developer</p>
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <h4>41+</h4>
+                    <p>Districts</p>
                 </div>
-                <h1 class="hero-title" id="home-name">Sahariya Islam Shuvo</h1>
-                <p class="hero-subtitle" id="home-subtitle">Traveler • Explorer • Dreamer</p>
-                <p class="hero-intro" id="home-intro">
-                    Navigating through space and time. Archiving exploration logs across coordinate networks and cultural nexus points. Welcome to my personal travel universe.
-                </p>
-                <div class="hero-actions">
-                    <a href="#journey" class="holo-btn primary"><i class="fas fa-rocket"></i> EXPLORE MY JOURNEY</a>
-                    <a href="#profile" class="holo-btn secondary"><i class="fas fa-id-card"></i> MY PROFILE</a>
+                <div class="stat-item">
+                    <h4>10+</h4>
+                    <p>Research Tools</p>
+                </div>
+                <div class="stat-item">
+                    <h4>100%</h4>
+                    <p>Dedication</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SECTION 2: PROFILE -->
-        <section id="profile" class="viewport-section">
-            <div class="section-header">
-                <h2><i class="fas fa-user-astronaut"></i> EXPEDITIONER PROFILE</h2>
-                <div class="header-line"></div>
-            </div>
-            <div class="profile-grid">
-                <div class="profile-card main-info-card glass-panel">
-                    <div class="profile-img-container">
-                        <img src="" id="profile-avatar" alt="Profile Picture" class="profile-img" onerror="this.src='https://via.placeholder.com/250/0d1117/00f3ff?text=SHUVO'">
-                    </div>
-                    <h3 id="profile-fullname">Sahariya Islam Shuvo</h3>
-                    <p class="badge-nickname" id="profile-nickname">"SHUVO"</p>
-                    <div class="bio-box">
-                        <p id="profile-bio">Passionate voyager mapping terrain, culture, and coastal nodes.</p>
-                    </div>
-                </div>
-                
-                <div class="profile-details-grid">
-                    <div class="glass-panel detail-card">
-                        <i class="fas fa-graduation-cap card-icon"></i>
-                        <h4>Education</h4>
-                        <p id="profile-education">Computer Science & Engineering</p>
-                    </div>
-                    <div class="glass-panel detail-card">
-                        <i class="fas fa-laptop-code card-icon"></i>
-                        <h4>Profession</h4>
-                        <p id="profile-profession">Software Engineer & Tech Explorer</p>
-                    </div>
-                    <div class="glass-panel detail-card">
-                        <i class="fas fa-heart card-icon"></i>
-                        <h4>Travel Passion</h4>
-                        <p id="profile-passion">Coastal Trails, Mountain Peaks & Wilderness</p>
-                    </div>
-                    <div class="glass-panel detail-card">
-                        <i class="fas fa-star card-icon"></i>
-                        <h4>Favorite Destination</h4>
-                        <p id="profile-fav-dest">Bandarban & Cox's Bazar</p>
-                    </div>
-                </div>
+    <!-- Education & Qualifications Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2 class="section-title">About Me & Qualifications</h2>
+            <p class="section-subtitle">Academic background, technical skills, and key field experiences</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>Education & Learning</h3>
+                <p>Computer Science & Software Engineering emphasis. Experienced with HTML, CSS, JS, Python, and Supabase integration.</p>
             </div>
 
-            <!-- Stats Counter Block -->
-            <div class="stats-container" id="stats-board">
-                <div class="glass-panel stat-card">
-                    <i class="fas fa-globe-asia"></i>
-                    <h3 class="counter" data-target="0" id="stat-places">0</h3>
-                    <p>Places Explored</p>
-                </div>
-                <div class="glass-panel stat-card">
-                    <i class="fas fa-map-marked"></i>
-                    <h3 class="counter" data-target="0" id="stat-districts">0</h3>
-                    <p>Districts Visited</p>
-                </div>
-                <div class="glass-panel stat-card">
-                    <i class="fas fa-plane-departure"></i>
-                    <h3 class="counter" data-target="0" id="stat-trips">0</h3>
-                    <p>Total Trips</p>
-                </div>
-                <div class="glass-panel stat-card">
-                    <i class="fas fa-camera-retro"></i>
-                    <h3 class="counter" data-target="0" id="stat-memories">0</h3>
-                    <p>Memories Saved</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: MY TRAVEL JOURNEY -->
-        <section id="journey" class="viewport-section">
-            <div class="section-header">
-                <h2><i class="fas fa-compass"></i> EXPLORATION DASHBOARD</h2>
-                <div class="header-line"></div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3>Web Development</h3>
+                <p>Building responsive web layouts, custom UI components, dynamic data visual dashboards, and interactive interfaces.</p>
             </div>
 
-            <!-- Global Controls: Search & Filters -->
-            <div class="controls-wrapper glass-panel">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="global-search" placeholder="Search destinations, spots, districts...">
-                </div>
-                <div class="filter-bar" id="filter-bar">
-                    <button class="filter-btn active" data-filter="all">ALL</button>
-                    <button class="filter-btn" data-filter="bangladesh">BANGLADESH</button>
-                    <button class="filter-btn" data-filter="international">INTERNATIONAL</button>
-                    <button class="filter-btn" data-filter="beach">BEACHES</button>
-                    <button class="filter-btn" data-filter="mountain">MOUNTAINS</button>
-                    <button class="filter-btn" data-filter="favorite">FAVORITES</button>
-                </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Field Data Collection</h3>
+                <p>Experienced field investigator proficient in KoboCollect, ODK Collect, SmartSurvey, SurveyToGo, and SurveyCTO.</p>
             </div>
+        </div>
+    </section>
 
-            <!-- Journey Destination Grid -->
-            <div class="journey-grid" id="journey-grid"></div>
-        </section>
+    <!-- Travel Bangladesh Section -->
+    <section id="travel">
+        <div class="section-header">
+            <h2 class="section-title">Travel Bangladesh & Unique Places</h2>
+            <p class="section-subtitle">Exploring diverse landscapes and rivers across 41 districts</p>
+        </div>
 
-        <!-- SECTION 4: COX'S BAZAR SPECIAL PAGE -->
-        <section id="coxsbazar" class="viewport-section">
-            <div class="section-header">
-                <h2><i class="fas fa-umbrella-beach"></i> COX'S BAZAR EXPEDITION MATRIX</h2>
-                <p class="section-subtext">Detailed logs from the longest natural sea beach in the world.</p>
-                <div class="header-line"></div>
-            </div>
+        <div class="travel-banner">
+            <h3>Travel Journey</h3>
+            <div class="travel-counter">41 / 64</div>
+            <p>Districts Documented Across Bangladesh</p>
             
-            <div class="cb-stats-banner glass-panel">
-                <div class="cb-stat-item">
-                    <span class="cb-badge">LOG STATUS</span>
-                    <h3>VISITED 12+ TIMES</h3>
-                </div>
-                <div class="cb-stat-item">
-                    <span class="cb-badge">PRIMARY BASE</span>
-                    <h3>SUGANDHA & MARINE DRIVE</h3>
-                </div>
+            <div class="places-tags">
+                <span class="tag unique"><i class="fa-solid fa-star"></i> Cox's Bazar (World's Longest Sea Beach)</span>
+                <span class="tag unique"><i class="fa-solid fa-mountain"></i> Sajek Valley (Above Clouds)</span>
+                <span class="tag unique"><i class="fa-solid fa-water"></i> Kaptai Lake, Rangamati</span>
+                <span class="tag"><i class="fa-solid fa-location-dot"></i> Sylhet Tea Gardens</span>
+                <span class="tag"><i class="fa-solid fa-location-dot"></i> Bandarban Hills</span>
+                <span class="tag"><i class="fa-solid fa-location-dot"></i> Khagrachhari Waterfalls</span>
+                <span class="tag"><i class="fa-solid fa-location-dot"></i> Chittagong Sea Port</span>
             </div>
-
-            <div class="cb-grid" id="cb-grid"></div>
-        </section>
-
-        <!-- SECTION 5: BANGLADESH 41 DISTRICTS -->
-        <section id="districts" class="viewport-section">
-            <div class="section-header">
-                <h2><i class="fas fa-map-marked-alt"></i> BANGLADESH 41 DISTRICTS LOG</h2>
-                <p class="section-subtext">Interactive territorial mapping of national coverage.</p>
-                <div class="header-line"></div>
-            </div>
-
-            <div class="districts-container">
-                <div class="districts-grid" id="districts-grid"></div>
-            </div>
-        </section>
-
-        <!-- SECTION 6: PHOTO GALLERY -->
-        <section id="gallery" class="viewport-section">
-            <div class="section-header">
-                <h2><i class="fas fa-images"></i> VISUAL ARCHIVE</h2>
-                <div class="header-line"></div>
-            </div>
-
-            <div class="gallery-grid" id="gallery-grid"></div>
-        </section>
-
-        <!-- SECTION 7: TIMELINE -->
-        <section id="timeline" class="viewport-section">
-            <div class="section-header">
-                <h2><i class="fas fa-stream"></i> CHRONOLOGICAL CHRONICLE</h2>
-                <div class="header-line"></div>
-            </div>
-            <div class="timeline-wrapper" id="timeline-wrapper"></div>
-        </section>
-
-        <!-- SECTION 8: SOCIAL MEDIA -->
-        <section id="social" class="viewport-section">
-            <div class="section-header">
-                <h2><i class="fas fa-satellite"></i> COMMUNICATION FREQUENCIES</h2>
-                <div class="header-line"></div>
-            </div>
-            <div class="social-grid" id="social-grid"></div>
-        </section>
-
-    </main>
-
-    <!-- FLOATING ACTIONS CONTAINER -->
-    <div class="floating-controls">
-        <button id="floating-home" class="floating-btn" title="Return to Core Base (Home)">
-            <i class="fas fa-home"></i>
-        </button>
-        <button id="floating-back" class="floating-btn hidden" title="Back to Previous View">
-            <i class="fas fa-arrow-left"></i>
-        </button>
-    </div>
-
-    <!-- GLOBAL DETAILED MODAL SYSTEM -->
-    <div id="detail-modal" class="modal-overlay">
-        <div class="modal-container glass-panel">
-            <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
-            <div class="modal-content-wrapper" id="modal-body"></div>
         </div>
-    </div>
+    </section>
 
-    <!-- LIGHTBOX SYSTEM -->
-    <div id="lightbox" class="lightbox-overlay">
-        <button class="lightbox-close" id="lightbox-close"><i class="fas fa-times"></i></button>
-        <button class="lightbox-nav prev" id="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
-        <button class="lightbox-nav next" id="lightbox-next"><i class="fas fa-chevron-right"></i></button>
-        <div class="lightbox-content">
-            <img id="lightbox-img" src="" alt="Enlarged Memory">
-            <div class="lightbox-caption" id="lightbox-caption"></div>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Connect on social platforms or chat directly</p>
         </div>
-    </div>
 
-    <!-- FOOTER -->
-    <footer class="holo-footer">
-        <div class="footer-content">
-            <p class="footer-text">&copy; 2026 Sahariya Islam Shuvo — My Travel Universe</p>
-            <div class="footer-links">
-                <a href="#home">Home</a> • 
-                <a href="#journey">Destinations</a> • 
-                <a href="#gallery">Gallery</a> • 
-                <a href="#profile">Profile</a>
-            </div>
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <a href="https://wa.me/8801791996607" target="_blank" class="btn btn-primary">
+                <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (01791996607)
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sahariya Islam Shuvo. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/share/19KEzFtijK/" target="_blank" class="footer-social-link"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/sahariyashuvo_/?utm_source=ig_web_button_share_sheet" target="_blank" class="footer-social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/8801791996607" target="_blank" class="footer-social-link"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
     </footer>
 
-    <!-- Core App Logic -->
-    <script src="script.js"></script>
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
