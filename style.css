@@ -70,7 +70,7 @@ body {
     pointer-events: none;
 }
 
-/* Preloader */
+/* Simplified Custom Preloader */
 #preloader {
     position: fixed;
     inset: 0;
@@ -79,42 +79,29 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.6s ease, visibility 0.6s;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.loader-content {
-    text-align: center;
+#preloader.hide {
+    opacity: 0;
+    visibility: hidden;
 }
 
-.holo-ring {
-    width: 80px;
-    height: 80px;
-    border: 4px solid transparent;
-    border-top: 4px solid var(--cyan-glow);
-    border-right: 4px solid var(--blue-glow);
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    animation: spin 1s linear infinite;
+.loader-text {
+    color: var(--cyan-glow);
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px var(--cyan-glow);
+    animation: pulseGlow 1.2s infinite alternate;
 }
 
-.progress-bar {
-    width: 240px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    margin: 15px auto 0;
-    border-radius: 2px;
-    overflow: hidden;
+@keyframes pulseGlow {
+    0% { opacity: 0.3; transform: scale(0.97); }
+    100% { opacity: 1; transform: scale(1.03); }
 }
-
-.progress-fill {
-    width: 100%;
-    height: 100%;
-    background: var(--cyan-glow);
-    animation: fillProgress 1.5s ease-in-out infinite;
-}
-
-@keyframes spin { 100% { transform: rotate(360deg); } }
-@keyframes fillProgress { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
 /* Reusable Glassmorphism Panels */
 .glass-panel {
@@ -158,9 +145,7 @@ body {
     margin: 10px auto 0;
 }
 
-/* ==========================================================================
-   NAVIGATION BAR
-   ========================================================================== */
+/* NAVIGATION BAR */
 .holo-nav {
     position: fixed;
     top: 0;
@@ -225,9 +210,7 @@ body {
     cursor: pointer;
 }
 
-/* ==========================================================================
-   MAIN STRUCTURE & SECTIONS
-   ========================================================================== */
+/* MAIN STRUCTURE & SECTIONS */
 .main-wrapper {
     margin-top: 70px;
     padding: 2rem;
@@ -238,7 +221,7 @@ body {
     display: none;
     max-width: 1300px;
     margin: 0 auto;
-    animation: fadeIn 0.5s ease forward;
+    animation: fadeIn 0.5s ease forwards;
 }
 
 .viewport-section.active-section {
@@ -250,9 +233,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================================================================
-   SECTION 1: HOME
-   ========================================================================== */
+/* SECTION 1: HOME */
 .home-container {
     min-height: calc(85vh - 70px);
     display: flex;
@@ -277,6 +258,8 @@ body {
     border: 2px dashed var(--cyan-glow);
     animation: spin 20s linear infinite;
 }
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
 
 .avatar-img {
     width: 100%;
@@ -356,9 +339,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* ==========================================================================
-   SECTION 2: PROFILE & STATS
-   ========================================================================== */
+/* SECTION 2: PROFILE & STATS */
 .profile-grid {
     display: grid;
     grid-template-columns: 320px 1fr;
@@ -428,7 +409,6 @@ body {
 .detail-card p {
     font-size: 1.1rem;
     font-weight: 600;
-
 }
 
 .stats-container {
@@ -460,9 +440,7 @@ body {
     text-transform: uppercase;
 }
 
-/* ==========================================================================
-   SECTION 3: JOURNEY & CONTROLS
-   ========================================================================== */
+/* SECTION 3: JOURNEY & CONTROLS */
 .controls-wrapper {
     padding: 1rem 1.5rem;
     margin-bottom: 2rem;
@@ -636,9 +614,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* ==========================================================================
-   SECTION 4 & 5: COX'S BAZAR & DISTRICTS
-   ========================================================================== */
+/* SECTION 4 & 5: COX'S BAZAR & DISTRICTS */
 .cb-stats-banner {
     padding: 1.5rem;
     margin-bottom: 2rem;
@@ -707,9 +683,7 @@ body {
     background: var(--text-muted);
 }
 
-/* ==========================================================================
-   SECTION 6 & 7: GALLERY & TIMELINE
-   ========================================================================== */
+/* SECTION 6 & 7: GALLERY & TIMELINE */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -803,9 +777,7 @@ body {
     padding: 1.2rem;
 }
 
-/* ==========================================================================
-   SECTION 8: SOCIAL MEDIA CARDS
-   ========================================================================== */
+/* SECTION 8: SOCIAL MEDIA CARDS */
 .social-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -844,9 +816,7 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* ==========================================================================
-   MODAL & LIGHTBOX SYSTEM
-   ========================================================================== */
+/* MODAL & LIGHTBOX SYSTEM */
 .modal-overlay, .lightbox-overlay {
     position: fixed;
     inset: 0;
@@ -987,29 +957,23 @@ body {
     color: var(--cyan-glow);
 }
 
-/* ==========================================================================
-   RESPONSIVE DESIGN (MEDIA QUERIES)
-   ========================================================================== */
+/* RESPONSIVE DESIGN */
 @media (max-width: 900px) {
     .profile-grid {
         grid-template-columns: 1fr;
     }
-    
     .timeline-wrapper::before {
         left: 20px;
     }
-    
     .timeline-item {
         width: 100%;
         padding-left: 50px;
         padding-right: 0;
         text-align: left !important;
     }
-    
     .timeline-item:nth-child(even) {
         left: 0;
     }
-    
     .timeline-node {
         left: 13px !important;
     }
@@ -1019,7 +983,6 @@ body {
     .mobile-toggle {
         display: block;
     }
-    
     .nav-links {
         position: fixed;
         top: 70px;
@@ -1034,17 +997,14 @@ body {
         overflow: hidden;
         transition: max-height 0.4s ease;
     }
-    
     .nav-links.open {
         max-height: 450px;
     }
-
     .hero-title {
         font-size: 2.2rem;
     }
-
     .controls-wrapper {
         flex-direction: column;
         align-items: stretch;
     }
-        }
+}
